@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import axios from 'axios';
 import NavBar from './NavBar';
 import VoteSurvey from './VoteSurvey';
+import UserProfile from './UserProfile';
+import users from '../data/dummyUsers'
 
 class VoteApp extends React.Component {
     constructor(props) {
@@ -14,7 +16,8 @@ class VoteApp extends React.Component {
             foodType: null,
             location: null,
             hasLocationChoice: false,
-            restaurant: null
+            restaurant: null,
+            username: "copper"
         };
 
         this.handleFoodChoice = this.handleFoodChoice.bind(this);
@@ -99,6 +102,7 @@ class VoteApp extends React.Component {
                     <div className="main-container">
                         <div className="main-content">
                             <h1 className="vote-confirm"> You voted that {this.state.restaurant.label} has the best {this.state.foodType.label.toLowerCase()} in {this.state.location.label}! </h1>
+                            <UserProfile username={this.state.username} dishes={users[this.state.username]}></UserProfile>
                         </div>
                     </div>
                 </div>
