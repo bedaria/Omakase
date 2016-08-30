@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import VoteSurvey from './VoteSurvey';
+import UserProfile from './UserProfile';
+import users from '../data/dummyUsers'
 
 class VoteApp extends React.Component {
     constructor(props) {
@@ -10,7 +12,8 @@ class VoteApp extends React.Component {
             foodType: null,
             location: null,
             hasLocationChoice: false,
-            restaurant: null
+            restaurant: null,
+            username: "copper"
         };
 
         this.handleFoodChoice = this.handleFoodChoice.bind(this);
@@ -66,6 +69,7 @@ class VoteApp extends React.Component {
                     <img src='./logo.jpg'/>
                     <Link to={'/'}>Search for Food</Link>
                     <h1> You voted that {this.state.restaurant.label} has the best {this.state.foodType.label.toLowerCase()} in {this.state.location.label}! </h1>
+                    <UserProfile username={this.state.username} dishes={users[this.state.username]}></UserProfile>
                 </div>
             );
         }
