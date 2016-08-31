@@ -75,7 +75,6 @@ class VoteApp extends React.Component {
     }
 
     render() {
-        console.log("this.props.params: ", this.props.params)
         if (this.state.page === 'voteSurvey') {
             return (
                 <div className="container-fluid">
@@ -103,7 +102,12 @@ class VoteApp extends React.Component {
                     <div className="main-container">
                         <div className="main-content">
                             <h1 className="vote-confirm"> You voted that {this.state.restaurant.label} has the best {this.state.foodType.label.toLowerCase()} in {this.state.location.label}! </h1>
-                            <UserProfile username={this.state.username} dishes={users[this.state.username]}></UserProfile>
+                            <UserProfile
+                                username={this.state.username}
+                                restaurant={this.state.restaurant.label}
+                                foodType={this.state.foodType.label.toLowerCase()}
+                                location={this.state.location.label}
+                            />
                         </div>
                     </div>
                 </div>
