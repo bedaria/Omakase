@@ -4,7 +4,8 @@ import axios from 'axios';
 import NavBar from './NavBar';
 import VoteSurvey from './VoteSurvey';
 import UserProfile from './UserProfile';
-import users from '../data/dummyUsers'
+import users from '../data/dummyUsers';
+
 
 class VoteApp extends React.Component {
     constructor(props) {
@@ -89,6 +90,7 @@ class VoteApp extends React.Component {
                                 hasLocationChoice={this.state.hasLocationChoice}
                                 handleRestaurantChoice={this.handleRestaurantChoice}
                                 handleVote={this.handleVote}
+                                username={this.state.username}
                             />
                         </div>
                     </div>
