@@ -13,9 +13,13 @@ ReactDOM.render((
     <Router history={hashHistory}>
         <Route path="/" component={SearchApp} />
         <Route path="/vote" component={VoteApp} />
+<<<<<<< 07970b7fea36b84531f07b74274cbd9962da1da1
 <<<<<<< 261adb5257c828230bf24d981f6528499a61b848
         <Route path="/about" component={AboutPage} />
 =======
+=======
+        <Route path="/vote/:username" component={VoteApp}/>
+>>>>>>> [feature] - connects Signin to VoteApp
         <Route path="/signin" component={Signin} />
 >>>>>>> [feature] - adds Signin page, adds Signin page to routes, reroutes SearchApp 'go vote' to signin page
     </Router>

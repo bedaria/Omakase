@@ -4,8 +4,6 @@ import axios from 'axios';
 import NavBar from './NavBar';
 import VoteSurvey from './VoteSurvey';
 import UserProfile from './UserProfile';
-import users from '../data/dummyUsers';
-
 
 class VoteApp extends React.Component {
     constructor(props) {
@@ -18,7 +16,7 @@ class VoteApp extends React.Component {
             location: null,
             hasLocationChoice: false,
             restaurant: null,
-            username: "copper"
+            username: this.props.params.username
         };
 
         this.handleFoodChoice = this.handleFoodChoice.bind(this);
@@ -77,6 +75,7 @@ class VoteApp extends React.Component {
     }
 
     render() {
+        console.log("this.props.params: ", this.props.params)
         if (this.state.page === 'voteSurvey') {
             return (
                 <div className="container-fluid">
@@ -103,7 +102,7 @@ class VoteApp extends React.Component {
                     <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                     <div className="main-container">
                         <div className="main-content">
-                            <UserProfile username={this.state.username} dishes={users[this.state.username]}></UserProfile>
+                            <UserProfile username={this.state.username}></UserProfile>
                         </div>
                     </div>
                 </div>
