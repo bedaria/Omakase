@@ -11,12 +11,15 @@ class VoteSurvey extends React.Component {
         console.log(props)
         super(props);
         this.state = {
+            username: props.username
         };
 
     }
 
     render() {
         return (
+            <div>
+                <p> My username: {this.state.username} </p>
                 <p> I had the best </p>
                 <FoodSearchBar
                     foodPlaceholder={null}
