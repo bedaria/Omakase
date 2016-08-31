@@ -76,7 +76,7 @@ class SearchApp extends React.Component {
             return (
                 <div>
                     <img src='./logo.jpg'/>
-                    <Link to={'/vote'}>Go Vote</Link>
+                    <Link to={'/signin'}>Go Vote</Link>
                     <div>
                         <h1> What are you craving? </h1>
                         {this.state.foodError && <p> Please choose a food! </p>}
@@ -94,7 +94,7 @@ class SearchApp extends React.Component {
             return (
                 <div>
                     <img src='./logo.jpg'/>
-                    <Link to={'/vote'}>Go Vote</Link>
+                    <Link to={'/signin'}>Go Vote</Link>
                     <FoodResult
                                 location={this.state.location}
                                 foodType={this.state.foodType}

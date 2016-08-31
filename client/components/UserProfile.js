@@ -5,19 +5,18 @@ class UserProfile extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            username: this.props.username,
-            dishes: this.props.dishes
         }
     }
 
     render() {
-        if(users[this.state.username]) {
+        if(users[this.props.username]) {
              return ( <div>
                 <div> User Image: </div>
                 <div>Your username is: {this.props.username} </div>
+                <h1> You voted that {this.props.restaurant} has the best {this.props.foodType} in {this.props.location}! </h1>
                 You've also voted for:
                 <ul>
-                    {props.dishes.map(dish => {
+                    {users[this.state.username].map(dish => {
                         return <li>{dish}</li>;
                   })}
                 </ul>
@@ -27,6 +26,7 @@ class UserProfile extends React.Component {
             return ( <div>
                 <div> User Image: </div>
                 <div>Your username is: {this.props.username} </div>
+                <h1> You voted that {this.props.restaurant} has the best {this.props.foodType} in {this.props.location}! </h1>
                 Congrats on voting for your first dish!
                 </div>)
         }
