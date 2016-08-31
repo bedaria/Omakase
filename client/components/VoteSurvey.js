@@ -10,6 +10,7 @@ class VoteSurvey extends React.Component {
         console.log(props)
         super(props);
         this.state = {
+            username: props.username
         };
 
     }
@@ -17,7 +18,7 @@ class VoteSurvey extends React.Component {
     render() {
         return (
             <div>
-                <p> My username </p>
+                <p> My username: {this.state.username} </p>
                 <p> I had the best </p>
                 <FoodSearchBar
                     foodPlaceholder={null}

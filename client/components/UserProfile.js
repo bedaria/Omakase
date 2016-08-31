@@ -5,7 +5,7 @@ var UserProfile = (props) => {
    return ( <div>
         <div> User Image: </div>
         <div>Your username is: {props.username} </div>
-        You've voted for:
+        You've also voted for:
         <ul>
             {props.dishes.map(dish => {
                 return <li>{dish}</li>;

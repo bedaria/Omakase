@@ -59,7 +59,7 @@ class SearchApp extends React.Component {
             return (
                 <div>
                     <img src='./logo.jpg'/>
-                    <Link to={'/vote'}>Go Vote</Link>
+                    <Link to={'/signin'}>Go Vote</Link>
                     <div>
                         <h1> Where are you? </h1>
                         {this.state.locationError && <p> Please choose a city! </p>}
