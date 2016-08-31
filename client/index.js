@@ -9,6 +9,7 @@ ReactDOM.render((
     <Router history={hashHistory}>
         <Route path="/" component={SearchApp} />
         <Route path="/vote/:username" component={VoteApp}/>
+        <Route path="/vote" component={VoteApp}/>
         <Route path="/signin" component={Signin} />
     </Router>
 ), document.getElementById("app"));
