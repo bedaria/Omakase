@@ -13,7 +13,7 @@ class SearchApp extends React.Component {
         super(props);
         this.state = {
             page: 'locationSearch',
-            navLink: '#/vote',
+            navLink: '#/signin',
             navMessage: 'Go Vote!',
             location: null,
             foodType: null,
