@@ -38,6 +38,7 @@ class VoteSurvey extends React.Component {
                 />
                 <Button bsSize="large" className="main-button" onClick={() => {this.props.handleVote()}}> Vote! </Button>
             </div>
+            </div>
         );
     }
 }

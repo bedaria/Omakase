@@ -16,7 +16,7 @@ class UserProfile extends React.Component {
                 <h1> You voted that {this.props.restaurant} has the best {this.props.foodType} in {this.props.location}! </h1>
                 You've also voted for:
                 <ul>
-                    {users[this.state.username].map(dish => {
+                    {users[this.props.username].map(dish => {
                         return <li>{dish}</li>;
                   })}
                 </ul>
