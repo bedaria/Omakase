@@ -76,15 +76,17 @@ class VoteApp extends React.Component {
                 <div className="container-fluid">
                     <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                     <div className="main-container">
-                        <div className="vote-survey-content">
-                            {this.state.error && <p className="error-message"> Please complete the voting form! </p>}
-                            <VoteSurvey
-                                handleFoodChoice={this.handleFoodChoice}
-                                handleLocationChoice={this.handleLocationChoice}
-                                hasLocationChoice={this.state.hasLocationChoice}
-                                handleRestaurantChoice={this.handleRestaurantChoice}
-                                handleVote={this.handleVote}
-                            />
+                        <div className="blurred-container">
+                            <div className="vote-survey-content">
+                                {this.state.error && <p className="error-message"> Please complete the voting form! </p>}
+                                <VoteSurvey
+                                    handleFoodChoice={this.handleFoodChoice}
+                                    handleLocationChoice={this.handleLocationChoice}
+                                    hasLocationChoice={this.state.hasLocationChoice}
+                                    handleRestaurantChoice={this.handleRestaurantChoice}
+                                    handleVote={this.handleVote}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
