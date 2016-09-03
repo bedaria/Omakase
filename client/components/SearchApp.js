@@ -55,7 +55,7 @@ class SearchApp extends React.Component {
 
             axios.post('/api/search/restaurant', data)
             .then((response) => {
-                this.setState({result: response.data.restaurant_name});
+                this.setState({result: response.data});
                 this.setState({page: 'foodResult'});
             })
             .catch((error) => {
