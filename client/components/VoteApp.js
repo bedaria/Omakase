@@ -14,8 +14,7 @@ class VoteApp extends React.Component {
             foodType: null,
             location: null,
             hasLocationChoice: false,
-            restaurant: null,
-            userid: props.params.userid
+            restaurant: null
         };
 
         this.handleFoodChoice = this.handleFoodChoice.bind(this);
@@ -77,7 +76,7 @@ class VoteApp extends React.Component {
                 <div className="container-fluid">
                     <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                     <div className="main-container">
-                        <div className="blurred-container">
+                        <div className="blurred-container-vote-survey">
                             <div className="vote-survey-content">
                                 {this.state.error && <p className="error-message"> Please complete the voting form! </p>}
                                 <VoteSurvey
@@ -99,8 +98,10 @@ class VoteApp extends React.Component {
                 <div className="container-fluid">
                     <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                     <div className="main-container">
-                        <div className="main-content">
-                            <h1 className="vote-confirm"> You voted that {this.state.restaurant.label} has the best {this.state.foodType.label.toLowerCase()} in {this.state.location.label}! </h1>
+                        <div className="blurred-container">
+                            <div className="main-content">
+                                <h1 className="vote-confirm"> You voted that {this.state.restaurant.label} has the best {this.state.foodType.label.toLowerCase()} in {this.state.location.label}! </h1>
+                            </div>
                         </div>
                     </div>
                 </div>

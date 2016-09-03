@@ -83,7 +83,7 @@ class SearchApp extends React.Component {
             return (
                 <div className="container-fluid">
                     <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
-                    <div className="main-container">
+                        <div className="main-container">
                         <div className="blurred-container">
                             <div className="main-content">
                                 <p> Where are you? </p>
@@ -126,12 +126,14 @@ class SearchApp extends React.Component {
                     <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                     <div className="main-container-food-result">
                         <a className="arrow" onClick={() => {this.navigateToFoodSearch()}}><Glyphicon glyph="chevron-left"/></a>
-                        <div className="main-content result-content">
-                            <FoodResult
-                                location={this.state.location}
-                                foodType={this.state.foodType}
-                                result={this.state.result}
-                            />
+                        <div className="blurred-container-food-result">
+                            <div className="main-content result-content">
+                                <FoodResult
+                                    location={this.state.location}
+                                    foodType={this.state.foodType}
+                                    result={this.state.result}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

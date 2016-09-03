@@ -66,11 +66,29 @@ body {
 
 .blurred-container {
     background: rgba(255,255,255,.85);
-    margin-top: 100px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
-    height: 500px;
+    height: 350px;
     width: 600px;
+}
+
+.blurred-container-food-result {
+    background: rgba(255,255,255,.85);
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    width: 350px;
+}
+
+.blurred-container-vote-survey {
+    background: rgba(255,255,255,.85);
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    width: 500px;
 }
 
 .Select-control {
@@ -89,7 +107,7 @@ body {
 .main-content {
     font-size: 1.5em;
     width: 60%;
-    margin-top: 100px;
+    margin-top: 50px;
     text-align: center;
     position: relative;
 }
@@ -104,7 +122,7 @@ body {
     font-size: 1.5em;
     color: black;
     width: 40%;
-    margin-top: 100px;
+    margin-top: 10px;
     position: relative;
     text-align: center;
 }
@@ -169,7 +187,28 @@ body {
 }
 
 .vote-confirm {
+    color: black;
+}
+
+input {
+    background: black;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-button {
+    margin-top: 5px;
+    border: black;
+    background: black;
     color: white;
 }
 
-
+::-webkit-input-placeholder {
+  color: white;
+  text-align: center;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+  text-align: center;
+}

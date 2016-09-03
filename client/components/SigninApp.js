@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, browserHistory } from 'react-router';
 import axios from 'axios';
+import { Button } from 'react-bootstrap';
 
 class SigninApp extends React.Component {
     constructor(props) {
@@ -25,14 +26,14 @@ class SigninApp extends React.Component {
 
     handleValidInput() {
         if(!this.state.username.length) {
-            return <div> Please input a Username </div>
+            return <div className="error-message"> Please input a Username </div>
         }
         else {
             if(this.state.previousPage === '/login-to-vote' || this.state.previousPage === '/login') {
-                return <button type="button" onClick={() => this.handleVerification('check')}> Login </button>
+                return <Button bsSize="large" className="login-button" onClick={() => this.handleVerification('check')}> Login </Button>
             }
             if(this.state.previousPage === '/signup') {
-                return <button type="button" onClick={() => this.handleVerification('add')}> Signup </button>
+                return <Button bsSize="large" className="login-button" onClick={() => this.handleVerification('add')}> Signup </Button>
             }
         }
     }
@@ -77,27 +78,45 @@ class SigninApp extends React.Component {
     render() {
         if(this.state.previousPage === '/login' || this.state.previousPage === '/login-to-vote') {
             return (
-                <div>
-                    LOGIN
-                    <form>
-                        <input type="text" value={this.state.username} onChange={this.handleUserInput} placeholder="Type username" />
-                        {this.handleValidInput()}
-                    </form>
-                    {this.handleRerouting()}
+                <div className="container-fluid">
+                <div className="nav-logo">
+                    <a href="/"><img src='./logo_medium.jpg'/></a>
+                </div>
+                <div className="main-container">
+                    <div className="blurred-container">
+                        <div className="main-content">
+                            <p> LOGIN </p>
+                            <form>
+                                <input type="text" value={this.state.username} onChange={this.handleUserInput} placeholder="Type username" />
+                            </form>
+                            {this.handleValidInput()}
+                            {this.handleRerouting()}
+                        </div>
+                    </div>
+                </div>
                 </div>
             );
         }
         if(this.state.previousPage === '/signup') {
             return (
-                <div>
-                    WELCOME
-                    <form>
-                        <input type="text" value={this.state.username} onChange={this.handleUserInput} placeholder="Type username" />
-                        <input type="text" placeholder="Type in password" />
-                        <input type="text" placeholder="Retype password" />
-                        {this.handleValidInput()}
-                    </form>
-                    {this.handleRerouting()}
+                <div className="container-fluid">
+                <div className="nav-logo">
+                    <a href="/"><img src='./logo_medium.jpg'/></a>
+                </div>
+                <div className="main-container">
+                    <div className="blurred-container">
+                        <div className="main-content">
+                            <p> WELCOME </p>
+                            <form>
+                                <input type="text" value={this.state.username} onChange={this.handleUserInput} placeholder="Type username" />
+                                <input type="text" placeholder="Type in password" />
+                                <input type="text" placeholder="Retype password" />
+                            </form>
+                            {this.handleValidInput()}
+                            {this.handleRerouting()}
+                        </div>
+                    </div>
+                </div>
                 </div>
             );
 

@@ -13,10 +13,8 @@ class VoteSurvey extends React.Component {
     }
 
     render() {
-        console.log("props: ", this.props)
         return (
             <div className="vote-survey">
-                <p> My user id is: {this.props.userid}</p>
                 <p> I had the best </p>
                 <FoodSearchBar
                     foodPlaceholder={null}
