@@ -14,7 +14,8 @@ class VoteApp extends React.Component {
             foodType: null,
             location: null,
             hasLocationChoice: false,
-            restaurant: null
+            restaurant: null,
+            userid: props.params.userid
         };
 
         this.handleFoodChoice = this.handleFoodChoice.bind(this);
@@ -85,6 +86,7 @@ class VoteApp extends React.Component {
                                     hasLocationChoice={this.state.hasLocationChoice}
                                     handleRestaurantChoice={this.handleRestaurantChoice}
                                     handleVote={this.handleVote}
+                                    userid={this.state.userid}
                                 />
                             </div>
                         </div>

@@ -7,6 +7,7 @@ exports.search = {
 function getTopRestaurant(req, res) {
 	searchModel.getTopRestaurant(req.body)
 	.then(function(result) {
+        console.log("inside getTopRestaurant")
 		res.status(200).send(result)
 	})
 	.catch(function(err) {

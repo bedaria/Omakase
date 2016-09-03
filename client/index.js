@@ -10,7 +10,7 @@ ReactDOM.render((
     <Router history={browserHistory}>
         <Route path="/" component={SearchApp} />
         <Route path="/vote" component={VoteApp} />
-        <Route path="/vote/:username" component={VoteApp}/>
+        <Route path="/vote/:userid" component={VoteApp}/>
         <Route path="/about" component={SigninApp} />
         <Route path="/signin" component={SigninApp} />
     </Router>
