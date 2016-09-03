@@ -11,7 +11,7 @@ ReactDOM.render((
         <Route path="/" component={SearchApp} />
         <Route path="/vote" component={VoteApp} />
         <Route path="/vote/:userid" component={VoteApp}/>
-        <Route path="/about" component={SigninApp} />
+        <Route path="/about" component={AboutPage} />
         <Route path="/signin" component={SigninApp} />
     </Router>
 ), document.getElementById("app"));

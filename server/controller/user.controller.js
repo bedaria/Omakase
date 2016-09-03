@@ -24,7 +24,6 @@ function addUser(req, res) {
 			}
 		})
 		.catch(function(err) {
-            console.log("Error inside findUserbyID")
 			res.status(500).end('Error inside findUserById', err)
 		})
 	}

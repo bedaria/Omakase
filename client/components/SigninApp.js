@@ -7,29 +7,26 @@ class SigninApp extends React.Component {
         super(props);
         this.state = {
             username: '',
-            userid: null
+            userid: null,
+            directTo: null
         }
 
         this.handleUserInput = this.handleUserInput.bind(this);
-        this.handleLink = this.handleLink.bind(this);
-        this.clickClick = this.clickClick.bind(this);
+        this.handleValidInput = this.handleValidInput.bind(this);
+        this.handleVerification = this.handleVerification.bind(this);
+        this.handleLinks = this.handleLinks.bind(this);
     }
 
     handleUserInput(event) {
         this.setState({username: event.target.value});
     }
 
-    handleLink() {
-        if(this.state.username.length) {
-            return <Link to={'/vote/' + this.state.username}>Signin</Link>
-        }
-        else {
+    handleValidInput() {
+        if(!this.state.username.length)
             return <div> Please input a Username </div>
-        }
-
     }
 
-    clickClick() {
+    handleVerification() {
         axios.get('/api/user/add', {
             params: {
               id: 12353623,
@@ -44,13 +41,28 @@ class SigninApp extends React.Component {
             })
     }
 
+    handleLinks() {
+        if(this.state.userid) {
+            return (
+                <div>
+                    <Link to={`/vote/${this.state.userid}`}>Vote</Link>
+                    <Link to={'/'}>Home</Link>
+                </div>
+            )
+        }
+
+    }
+
     render() {
         return (
-            <form>
-                <input type="text" value={this.state.username} onChange={this.handleUserInput.bind(this)} placeholder="Type username" />
-                <button type="button" onClick={this.clickClick} > Click click </button>
-                <Link to={`/vote/${this.state.userid}`}>Signin</Link>
-            </form>
+            <div>
+                <form>
+                    <input type="text" value={this.state.username} onChange={this.handleUserInput.bind(this)} placeholder="Type username" />
+                    <button type="button" onClick={this.handleVerification} > Verify </button>
+                </form>
+                {this.handleValidInput()}
+                {this.handleLinks()}
+            </div>
         );
     }
 }
