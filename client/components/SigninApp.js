@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import axios from 'axios';
 
 class SigninApp extends React.Component {
@@ -8,13 +8,13 @@ class SigninApp extends React.Component {
         this.state = {
             username: '',
             userid: null,
-            directTo: null
+            cameFrom: props.location.pathname
         }
 
         this.handleUserInput = this.handleUserInput.bind(this);
         this.handleValidInput = this.handleValidInput.bind(this);
         this.handleVerification = this.handleVerification.bind(this);
-        this.handleLinks = this.handleLinks.bind(this);
+        this.handleRerouting = this.handleRerouting.bind(this);
     }
 
     handleUserInput(event) {
@@ -22,8 +22,12 @@ class SigninApp extends React.Component {
     }
 
     handleValidInput() {
-        if(!this.state.username.length)
+        if(!this.state.username.length) {
             return <div> Please input a Username </div>
+        }
+        else {
+            return <button type="button" onClick={this.handleVerification}> Verify </button>
+        }
     }
 
     handleVerification() {
@@ -41,29 +45,45 @@ class SigninApp extends React.Component {
             })
     }
 
-    handleLinks() {
+    handleRerouting() {
         if(this.state.userid) {
-            return (
-                <div>
-                    <Link to={`/vote/${this.state.userid}`}>Vote</Link>
-                    <Link to={'/'}>Home</Link>
-                </div>
-            )
+            switch (this.state.cameFrom) {
+                case '/login-to-vote':
+                    {browserHistory.push('/vote')}
+                    break;
+                default:
+                    {browserHistory.push('/')}
+            }
         }
-
     }
 
     render() {
-        return (
-            <div>
-                <form>
-                    <input type="text" value={this.state.username} onChange={this.handleUserInput.bind(this)} placeholder="Type username" />
-                    <button type="button" onClick={this.handleVerification} > Verify </button>
-                </form>
-                {this.handleValidInput()}
-                {this.handleLinks()}
-            </div>
-        );
+        if(this.state.cameFrom === '/login' || this.state.cameFrom === '/login-to-vote') {
+            return (
+                <div>
+                    LOGIN
+                    <form>
+                        <input type="text" value={this.state.username} onChange={this.handleUserInput.bind(this)} placeholder="Type username" />
+                        {this.handleValidInput()}
+                    </form>
+                    {this.handleRerouting()}
+                </div>
+            );
+        }
+        if(this.state.cameFrom === '/signup') {
+            return (
+                <div>
+                    WELCOME
+                    <form>
+                        <input type="text" value={this.state.username} onChange={this.handleUserInput.bind(this)} placeholder="Type username" />
+                        <button type="button" onClick={this.handleVerification} > Verify </button>
+                    </form>
+                    {this.handleValidInput()}
+                    {this.handleRerouting()}
+                </div>
+            );
+
+        }
     }
 }
 

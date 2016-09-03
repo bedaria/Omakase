@@ -12,7 +12,7 @@ ReactDOM.render((
         <Route path="/vote" component={VoteApp} />
         <Route path="/vote/:userid" component={VoteApp}/>
         <Route path="/about" component={AboutPage} />
-        <Route path="/signin" component={SigninApp} />
+        <Route path="/login-to-vote" component={SigninApp} />
         <Route path="/login" component={SigninApp} />
         <Route path="/signup" component={SigninApp} />
     </Router>
