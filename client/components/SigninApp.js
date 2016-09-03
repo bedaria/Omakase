@@ -8,18 +8,28 @@ class SigninApp extends React.Component {
             username: ''
         }
 
-        this.saveUser = this.saveUser.bind(this);
+        this.handleUserInput = this.handleUserInput.bind(this);
+        this.handleLink = this.handleLink.bind(this);
     }
 
-    saveUser(event) {
+    handleUserInput(event) {
         this.setState({username: event.target.value});
+    }
+
+    handleLink() {
+        if(this.state.username.length) {
+            return <Link to={'/vote/' + this.state.username}>Signin</Link>
+        }
+        else {
+            return <div> Please input a Username </div>
+        }
     }
 
     render() {
         return (
             <form>
-                <input type="text" value={this.state.username} onChange={this.saveUser.bind(this)} placeholder="Type username" />
-                 <Link to={'/vote/' + this.state.username}>Signin</Link>
+                <input type="text" value={this.state.username} onChange={this.handleUserInput.bind(this)} placeholder="Type username" />
+                 {this.handleLink()}
             </form>
         );
     }
