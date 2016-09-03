@@ -8,7 +8,9 @@ class SigninApp extends React.Component {
         this.state = {
             username: '',
             userid: null,
-            cameFrom: props.location.pathname
+            error: false,
+            errorMessage: null,
+            previousPage: props.location.pathname
         }
 
         this.handleUserInput = this.handleUserInput.bind(this);
@@ -26,19 +28,31 @@ class SigninApp extends React.Component {
             return <div> Please input a Username </div>
         }
         else {
-            return <button type="button" onClick={this.handleVerification}> Verify </button>
+            if(this.state.previousPage === '/login-to-vote' || this.state.previousPage === '/login') {
+                return <button type="button" onClick={() => this.handleVerification('check')}> Login </button>
+            }
+            if(this.state.previousPage === '/signup') {
+                return <button type="button" onClick={() => this.handleVerification('add')}> Signup </button>
+            }
         }
     }
 
-    handleVerification() {
-        axios.get('/api/user/add', {
+    handleVerification(fn) {
+        axios.get('/api/user/' + fn, {
             params: {
               id: 12353623,
               name: "frankie"
             }
           })
             .then(response => {
-                this.setState({userid: response.data.FB_id})
+                if(typeof response.data === 'string') {
+                    this.setState({error: true});
+                    this.setState({errorMessage: response.data})
+                }
+
+                if(typeof response.data === 'object') {
+                    this.setState({userid: response.data.FB_id})
+                }
             })
             .catch(error => {
                 console.log(error);
@@ -47,38 +61,42 @@ class SigninApp extends React.Component {
 
     handleRerouting() {
         if(this.state.userid) {
-            switch (this.state.cameFrom) {
-                case '/login-to-vote':
-                    {browserHistory.push('/vote')}
-                    break;
-                default:
-                    {browserHistory.push('/')}
+            if(this.state.previousPage === '/login-to-vote') {
+                {browserHistory.push(`/vote/${this.state.userid}`)}
             }
+            else {
+                {browserHistory.push('/')}
+            }
+        }
+
+        if(this.state.error) {
+            return <div> {this.state.errorMessage} </div>
         }
     }
 
     render() {
-        if(this.state.cameFrom === '/login' || this.state.cameFrom === '/login-to-vote') {
+        if(this.state.previousPage === '/login' || this.state.previousPage === '/login-to-vote') {
             return (
                 <div>
                     LOGIN
                     <form>
-                        <input type="text" value={this.state.username} onChange={this.handleUserInput.bind(this)} placeholder="Type username" />
+                        <input type="text" value={this.state.username} onChange={this.handleUserInput} placeholder="Type username" />
                         {this.handleValidInput()}
                     </form>
                     {this.handleRerouting()}
                 </div>
             );
         }
-        if(this.state.cameFrom === '/signup') {
+        if(this.state.previousPage === '/signup') {
             return (
                 <div>
                     WELCOME
                     <form>
-                        <input type="text" value={this.state.username} onChange={this.handleUserInput.bind(this)} placeholder="Type username" />
-                        <button type="button" onClick={this.handleVerification} > Verify </button>
+                        <input type="text" value={this.state.username} onChange={this.handleUserInput} placeholder="Type username" />
+                        <input type="text" placeholder="Type in password" />
+                        <input type="text" placeholder="Retype password" />
+                        {this.handleValidInput()}
                     </form>
-                    {this.handleValidInput()}
                     {this.handleRerouting()}
                 </div>
             );
