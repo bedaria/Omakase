@@ -4,11 +4,13 @@ import { Router, Route, browserHistory } from 'react-router';
 import SearchApp from './components/SearchApp.js';
 import VoteApp from './components/VoteApp.js';
 import AboutPage from './components/AboutPage.js';
+import SigninApp from './components/SigninApp.js';
 
 ReactDOM.render((
     <Router history={browserHistory}>
         <Route path="/" component={SearchApp} />
         <Route path="/vote" component={VoteApp} />
-        <Route path="/about" component={AboutPage} />
+        <Route path="/about" component={SigninApp} />
+        <Route path="/signin" component={SigninApp} />
     </Router>
 ), document.getElementById("app"));
