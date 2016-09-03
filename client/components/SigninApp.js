@@ -41,7 +41,7 @@ class SigninApp extends React.Component {
         axios.get('/api/user/' + fn, {
             params: {
               id: 12353623,
-              name: "frankie"
+              name: this.state.username
             }
           })
             .then(response => {
