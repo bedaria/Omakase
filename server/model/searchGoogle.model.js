@@ -3,28 +3,24 @@ var request = require("request");
 
 var searchGoogleModel = module.exports;
 
-searchGoogleModel.getRestaurantList = function(params){
-  var query = params.restaurant + params.location;
+searchGoogleModel.getRestaurantList = function(params, res) {
+    var query = params.restaurant + params.location;
 
-  var options = { method: 'GET',
-    url: 'https://maps.googleapis.com/maps/api/place/textsearch/json',
-    qs:
-     { query: location,
-       key: auth.googlePlacesKey + '\t  ',
-       type: 'restaurant',
-       fields: 'results (formatted_address, name, opening_hours/open_now, photos)'   },
-    headers:
-     { 'postman-token': '21482a77-ec74-c13a-99c5-06dcad37ba43',
-       'cache-control': 'no-cache' },
-    body: '{\n  "title": "Michael T\'s GooglePlaces",\n  "content": "I LOVE LAMP!"\n}' };
+    var options = {
+        method: 'GET',
+        url: 'https://maps.googleapis.com/maps/api/place/textsearch/json',
+        qs: {
+            query: query,
+            key: 'AIzaSyBKzBInzbbwqbFWDpH5aqy8I73k3j4XiRM',
+            type: 'restaurant'
+        }
+    };
 
-
-  request(options, function(error, response, body) {
-    if (error) {
-      console.log('Error inside searchController inside request: ',error);
-    } else {
-      console.log('Success inside searchController inside request: response is', response);
-      return response
-    }
-  });
+    request(options, function(error, response, body) {
+        if (error) {
+            res.status(500).end(error);
+        } else {
+            res.status(200).send(body);
+        }
+    });
 }

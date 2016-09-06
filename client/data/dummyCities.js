@@ -31,6 +31,12 @@ const cityNames = [
     },
     {
         value: {
+            city: 'Los Angeles, CA'
+        },
+        label: 'Los Angeles, CA'
+    },
+    {
+        value: {
             city: 'New York, NY'
         },
         label: 'New York, NY'
@@ -39,6 +45,7 @@ const cityNames = [
         value: {
             city: 'Oklahoma City, OK'
         },
+        label: 'Oklahoma City, OK'
     },
     {
         value: {
