@@ -4,6 +4,7 @@ import axios from 'axios';
 import NavBar from './NavBar';
 import VoteSurvey from './VoteSurvey';
 import RestaurantResult from './RestaurantResult';
+import UserProfile from './UserProfile';
 import { Button } from 'react-bootstrap';
 
 class VoteApp extends React.Component {
@@ -189,7 +190,12 @@ class VoteApp extends React.Component {
                     <div className="main-container">
                     <div className="blurred-container">
                         <div className="main-content">
-                            <h1 className="vote-confirm"> You voted that {this.state.restaurant.name} has the best {this.state.foodType.label.toLowerCase()} in {this.state.location.label}! </h1>
+                            <UserProfile
+                                previousPage="/vote"
+                                restaurant={this.state.restaurant.name}
+                                foodType={this.state.foodType.label}
+                                location={this.state.location.label}
+                            />
                             <Button bsSize="large" className="main-button" onClick={() => {this.navigateToVoteSurvey()}}> Vote For More </Button>
                         </div>
                     </div>
