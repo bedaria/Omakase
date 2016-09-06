@@ -54,24 +54,59 @@ body {
     position: relative;
 }
 
-.main-content {
-    font-size: 1.5em;
-    width: 60%;
-    margin-top: 150px;
-    text-align: center;
-    position: relative;
+.blurred-container {
+    background: rgba(255,255,255,.85);
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    height: 350px;
+    width: 600px;
+}
+
+.blurred-container-food-result {
+    background: rgba(255,255,255,.85);
+    margin-top: 10px;
+    height: 500px;
+    width: 600px;
+}
+
+.blurred-container-vote-survey {
+    background: rgba(255,255,255,.85);
+    margin-top: 5px;
+    height: 400px;
+    width: 500px;
+}
+
+.Select-control {
+    background-color: black !important;
+}
+
+.is-open, .Select-option, .Select-menu-outer {
+    background-color: black;
     color: white;
 }
 
+.Select-placeholder, .Select-value-label {
+    color: white !important;
+}
+
+.main-content {
+    font-size: 1.5em;
+    width: 60%;
+    margin-top: 60px;
+    text-align: center;
+    position: relative;
+    color: black;
+}
+
 .result-content {
-    margin-top: 80px;
     display: flex;
     justify-content: center;
 }
 
 .vote-survey-content {
     font-size: 1.5em;
-    color: white;
+    color: black;
     width: 40%;
     margin-top: 150px;
     position: relative;
@@ -137,12 +172,7 @@ body {
 }
 
 .main-content p {
-    color: white;
-    text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+    color: black;
     letter-spacing: 2px;
     font-size: 2em;
     margin-bottom: 35px;
@@ -154,16 +184,19 @@ body {
 }
 
 .main-button {
+    color: white;
     margin-top: 40px;
     border: black;
+    background: black;
 }
 
 .main-button:hover {
-    background: black;
+    background: grey;
     color: white;
 }
 
 .food-result {
+    margin-top: 20px;
     width: 300px;
     font-size: 1em;
 }
