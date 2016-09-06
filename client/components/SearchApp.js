@@ -155,10 +155,12 @@ class SearchApp extends React.Component {
                 <div className="container-fluid">
                     <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                     <div className="main-container">
+                    <div className="blurred-container">
                         <div className="main-content">
                             <h1> Something went wrong... </h1>
                             <Button className="main-button" onClick={() => {this.navigateToLocationSearch()}}> Try Again </Button>
                         </div>
+                    </div>
                     </div>
                 </div>
             );

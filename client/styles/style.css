@@ -86,6 +86,15 @@ body {
     width: 600px;
 }
 
+.blurred-container-restaurant {
+    background: rgba(255,255,255,.95);
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    height: 510px;
+    width: 600px;
+}
+
 .Select-control {
     background-color: black !important;
 }
@@ -190,7 +199,7 @@ body {
 
 .main-button {
     color: white;
-    margin-top: 40px;
+    margin-top: 15px;
     border: black;
     background: black;
 }
@@ -212,12 +221,8 @@ body {
 }
 
 .vote-confirm {
-    color: white;
-    text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+    color: black;
+
 }
 
 .input-bar {
@@ -244,12 +249,7 @@ body {
 }
 
 .restaurant-content {
-    margin-top: 80px;
-    text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+    margin-top: 5px;
 }
 
 .restaurant-results {
@@ -268,6 +268,7 @@ body {
 
 .restaurant-result:hover {
     border: 2px solid black;
+    border: 2px solid grey;
     cursor: pointer;
 }
 
@@ -299,6 +300,5 @@ body {
     height: 200px;
     width: 200px;
     border-radius: 100%;
-    margin-bottom: 10px;
 }
 

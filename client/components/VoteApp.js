@@ -151,10 +151,12 @@ class VoteApp extends React.Component {
                     <div className="container-fluid">
                         <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                         <div className="main-container">
+                        <div className="blurred-container">
                             <div className="main-content restaurant-content">
                                 <h1> Sorry, we did not find what you were looking for... </h1>
                                 <Button bsSize="large" className="main-button" onClick={() => {this.navigateToVoteSurvey()}}> Try Again </Button>
                             </div>
+                        </div>
                         </div>
                     </div>
                 );
@@ -163,6 +165,7 @@ class VoteApp extends React.Component {
                     <div className="container-fluid">
                         <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                         <div className="main-container">
+                        <div className="blurred-container-restaurant">
                             <div className="main-content restaurant-content">
                                 <h1> Which restaurant did you mean? </h1>
                                 <div className="restaurant-results">
@@ -172,6 +175,7 @@ class VoteApp extends React.Component {
                                 </div>
                                 <Button bsSize="large" className="main-button" onClick={() => {this.handleVote()}}> Vote! </Button>
                             </div>
+                        </div>
                         </div>
                     </div>
                 );
@@ -183,10 +187,12 @@ class VoteApp extends React.Component {
                 <div className="container-fluid">
                     <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                     <div className="main-container">
+                    <div className="blurred-container">
                         <div className="main-content">
                             <h1 className="vote-confirm"> You voted that {this.state.restaurant.name} has the best {this.state.foodType.label.toLowerCase()} in {this.state.location.label}! </h1>
                             <Button bsSize="large" className="main-button" onClick={() => {this.navigateToVoteSurvey()}}> Vote For More </Button>
                         </div>
+                    </div>
                     </div>
                 </div>
             );
