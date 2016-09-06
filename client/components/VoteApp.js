@@ -115,6 +115,7 @@ class VoteApp extends React.Component {
                 <div className="container-fluid">
                     <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                     <div className="main-container">
+                    <div className="blurred-container-vote-survey">
                         <div className="vote-survey-content">
                             {this.state.error && <p className="error-message"> Please complete the voting form! </p>}
                             <VoteSurvey
@@ -126,6 +127,7 @@ class VoteApp extends React.Component {
                             />
                         </div>
                     </div>
+                    </div>
                 </div>
             );
         }
@@ -134,9 +136,11 @@ class VoteApp extends React.Component {
                 <div className="container-fluid">
                     <NavBar navLink={this.state.navLink} navMessage={this.state.navMessage}/>
                     <div className="main-container">
+                    <div className="blurred-container">
                         <div className="main-content">
                             <img className="spinner" src="../spinner.gif"/>
                         </div>
+                    </div>
                     </div>
                 </div>
             );
