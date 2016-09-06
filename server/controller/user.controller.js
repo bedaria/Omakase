@@ -12,7 +12,7 @@ function addUser(req, res) {
 	userModel.findUserById(newUser)
 		.then(function(user) {
 			if (user) {
-				res.status(500).end("User already exists");
+				res.status(200).send(user]);
 			}  else {
 				userModel.addUser(newUser)
 					.then(function(result) {

@@ -243,6 +243,10 @@ body {
     text-align: center;
 }
 
+.login-bar {
+    margin-top: 5px;
+}
+
 .spinner {
     height: 200px;
     width: 200px;
