@@ -55,7 +55,7 @@ body {
 }
 
 .blurred-container {
-    background: rgba(255,255,255,.85);
+    background: rgba(255,255,255,.95);
     margin-top: 50px;
     display: flex;
     justify-content: center;
@@ -63,15 +63,24 @@ body {
     width: 600px;
 }
 
+.blurred-container-about {
+    background: rgba(255,255,255,.95);
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    width: 600px;
+}
+
 .blurred-container-food-result {
-    background: rgba(255,255,255,.85);
+    background: rgba(255,255,255,.95);
     margin-top: 10px;
     height: 500px;
     width: 600px;
 }
 
 .blurred-container-vote-survey {
-    background: rgba(255,255,255,.85);
+    background: rgba(255,255,255,.95);
     margin-top: 5px;
     height: 400px;
     width: 500px;
@@ -114,13 +123,8 @@ body {
 }
 
 .about-content {
-    margin-top: 80px;
-    color: white;
-    text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+    margin-top: 20px;
+    color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -278,6 +282,16 @@ body {
 .creator {
     text-align: center;
     margin: 20px;
+}
+
+.creator p {
+    background: rgba(255, 255, 255, .95);
+    color: black;
+    visibility: hidden;
+}
+
+.creator:hover p {
+    visibility: visible;
 }
 
 .creator-image {
