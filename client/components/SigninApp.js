@@ -32,7 +32,7 @@ class SigninApp extends React.Component {
         }
         else {
             if(this.state.previousPage === '/login-to-vote' || this.state.previousPage === '/login') {
-                return <Button className="main-button" bsSize="large" onClick={() => this.handleVerification('add')}> Login </Button>
+                return <Button className="main-button" bsSize="large" onClick={() => this.handleVerification('check')}> Login </Button>
             }
             if(this.state.previousPage === '/signup' ) {
                 return <Button className="main-button" bsSize="large" onClick={() => this.handleVerification('add')}> Signup </Button>
@@ -74,7 +74,7 @@ class SigninApp extends React.Component {
         }
 
         if(this.state.error) {
-            return <div> {this.state.errorMessage} </div>
+            return <div className="error-message"> {this.state.errorMessage} </div>
         }
     }
 
