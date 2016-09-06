@@ -61,8 +61,10 @@ knex.ensureSchema = function() {
 			if (!exists) {
   			 knex.schema.createTable('UsersDishes', function(table) {
   				table.increments('id').primary();
-  				table.integer('dish_id').unsigned().references('id').inTable('Dishes');
-          table.integer('user_id').unsigned().references('id').inTable('Users');
+          table.integer('dish_id').unsigned();
+          table.integer('user_id').unsigned();
+          table.foreign('dish_id').references('Dishes.id');
+          table.foreign('user_id').references('Users.id');
   			}).then(function(table) {
   				console.log('UsersTable has been created', table)
   			})
