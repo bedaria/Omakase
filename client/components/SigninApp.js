@@ -103,7 +103,7 @@ class SigninApp extends React.Component {
                 <div className="container-fluid">
                 <LoginBar/>
                 <div className="main-container">
-                    <div className="blurred-container">
+                    <div className="blurred-container-signin">
                         <div className="main-content">
                             <p> WELCOME </p>
                             <form>
